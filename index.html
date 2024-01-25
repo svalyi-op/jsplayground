@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/validate.js"></script>
+</head>
+<body>
+
+    <h3>Registriere dich jetzt bei OpenPetition!</h3>
+
+
+    <label for="username">User</label>
+    <input type="text" name="username" id="username" class="userinput">
+
+    <label for="usermail">E-Mail</label>
+    <input type="text" name="usermail" id="usermail" class="userinput" >
+    
+    <div id="pwstrength">j</div>
+    <label for="psw">Password</label>
+    <input type="password" id="psw" name="psw" >
+    
+
+  
+
+<script>
+    var auto = "meins";
+    let gemuese = "karotte";
+    const bigbang = "tvseeria";
+    console.log('hello' + auto);
+
+    fahre('vw')
+
+    function fahre(auto) {
+        console.log('fahre' + auto);
+    }
+
+    let passwordInput = document.getElementById('psw');
+    let passwordStrength = document.getElementById('pwstrength');
+    let upperCaseLetters = /[A-Z]/g;
+
+    console.log(passwordInput);
+    passwordInput.onkeyup = function() {
+        console.log(passwordInput.value.length);
+        console.log(passwordInput.value.match(upperCaseLetters));
+        if(passwordInput.value.length < 8 || !passwordInput.value.match(upperCaseLetters))
+        {
+            passwordStrength.style.backgroundColor = "red";
+        } else {
+            passwordStrength.style.backgroundColor = "green"
+        }
+
+    }
+</script>
+
+
+
+</body>
+</html>
