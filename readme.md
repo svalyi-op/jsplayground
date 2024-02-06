@@ -1,14 +1,15 @@
 # Javascript Projekt für Team Ausbildung
 # Registrieren Formular
 
-* Einfache Operationen
+Inhalte im Beispiel:
+* Einfache Operationen in Javascript 
+* Variablen
 * DOM Ansprechen / Manipulieren
+* Funktionales Programmieren
 
 
-Beispielaufgaben:
-* Sind schon registrierte Mails enthalten ? 
-* Ausbauen ( zweites Passwortfeld - sind die Passwörter gleich / sind verbotene Passwörter enthalten? )
-
+Was machen wir noch
+* requests (js requests, axios, jquery ajax)
 
 Ein express.js Backend wird benutzt um das typische Backendverhalten zu mocken
 
