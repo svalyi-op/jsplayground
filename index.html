@@ -16,44 +16,56 @@
     <label for="usermail">E-Mail</label>
     <input type="text" name="usermail" id="usermail" class="userinput" >
     
-    <div id="pwstrength">j</div>
     <label for="psw">Password</label>
     <input type="password" id="psw" name="psw" >
-    
+
+    <div id="pwstrength"></div>
 
   
-
 <script>
-    var auto = "meins";
-    let gemuese = "karotte";
-    const bigbang = "tvseeria";
-    console.log('hello' + auto);
 
-    fahre('vw')
+let passwordInput = document.getElementById('psw');
+let passwordStrength = document.getElementById('pwstrength');
+let upperCaseLetters = /[A-Z]/g;
+let specialcharacters = /[^a-zA-Z\d]/; 
+let numbers = /[0-9]/g; 
 
-    function fahre(auto) {
-        console.log('fahre' + auto);
+document.getElementById("pwstrength").style.display = "none";
+
+console.log(passwordInput);
+passwordInput.onkeyup = function() {
+    if (passwordInput.value.length > 0)
+        document.getElementById("pwstrength").style.display = "block";
+    else document.getElementById("pwstrength").style.display = "none";
+
+    console.log(passwordInput.value.length);
+    console.log(passwordInput.value.match(upperCaseLetters));
+   
+    if (passwordInput.value.match("12345")){
+        passwordStrength.style.backgroundColor = "#f24336";
+        passwordStrength.textContent = "Really?";
     }
-
-    let passwordInput = document.getElementById('psw');
-    let passwordStrength = document.getElementById('pwstrength');
-    let upperCaseLetters = /[A-Z]/g;
-
-    console.log(passwordInput);
-    passwordInput.onkeyup = function() {
-        console.log(passwordInput.value.length);
-        console.log(passwordInput.value.match(upperCaseLetters));
-        if(passwordInput.value.length < 8 || !passwordInput.value.match(upperCaseLetters))
-        {
-            passwordStrength.style.backgroundColor = "red";
-        } else {
-            passwordStrength.style.backgroundColor = "green"
-        }
-
+    else if(passwordInput.value.length < 8) {
+        passwordStrength.style.backgroundColor = "#f24336";
+        passwordStrength.textContent = "Ihr Passwort muss mindestens 8 Zeichen beinhalten!"
+    } 
+    else if (!passwordInput.value.match(upperCaseLetters)) {
+        passwordStrength.style.backgroundColor = "#f24336";
+        passwordStrength.textContent = "Ihr Passwort muss mindestens einen Großbuchstaben beinhalten!"
     }
+    else if (!passwordInput.value.match(numbers)){
+        passwordStrength.style.backgroundColor = "#ff0";
+        passwordStrength.textContent = "Ihr Passwort muss mindestens eine Zahl beinhalten!"
+    }
+    else if (!passwordInput.value.match(specialcharacters)){
+        passwordStrength.style.backgroundColor = "#f24336";
+        passwordStrength.textContent = "Ihr Passwort muss mindestens ein Sonderzeichen beinhalten!"
+    }
+    else {
+        passwordStrength.style.backgroundColor = "#63ff7c";
+        passwordStrength.textContent = "Sicheres Passwort";
+    }
+}
 </script>
-
-
-
 </body>
 </html>
